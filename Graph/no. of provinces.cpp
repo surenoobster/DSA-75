@@ -57,3 +57,51 @@ int main() {
         
     return 0;
 }
+
+
+
+
+//Now with BFS
+
+
+class Solution {
+    public:
+    void bfs(int node , vector<vector<int>>& isConnected , vector<bool> &visited)
+    {
+        queue<int> q;
+        q.push(node);
+        visited[node] = true;
+
+        while(!q.empty())
+        {
+            int current = q.front();
+            q.pop();
+
+            for(int i = 0 ;  i<isConnected.size() ; i++)
+            {
+                if(isConnected[current][i] && !visited[i])
+                {
+                    visited[i] = true;
+                    q.push(i);
+                }
+            }
+        }
+    }
+
+    int findCircleNum(vector<vector<int>>& isConnected) {
+        int n = isConnected.size();
+        int Componentscount = 0;
+        vector<bool> visited(n, false);
+        
+        for (int i = 0; i < n; i++) {
+            if (!visited[i]) {
+                Componentscount++;
+                bfs(i, isConnected, visited);
+            }
+        }
+        
+        return Componentscount;
+    }
+
+    
+};
