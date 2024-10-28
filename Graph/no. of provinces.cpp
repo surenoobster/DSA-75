@@ -75,6 +75,7 @@ class Solution {
         while(!q.empty())
         {
             int current = q.front();
+            
             q.pop();
 
             for(int i = 0 ;  i<isConnected.size() ; i++)
