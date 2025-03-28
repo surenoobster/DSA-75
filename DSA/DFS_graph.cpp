@@ -16,7 +16,7 @@ class solution {
     public:
     vector<int> dfsOfgraph(int V ,vector<int> adj[] )
     {
-        int vis[V] = {0};
+ 0       int vis[V] = {0};
         int start = 0;
         
 
